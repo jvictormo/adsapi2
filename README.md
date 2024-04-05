@@ -25,3 +25,18 @@
 ## 📌Objetivo do Projeto
 
 O objetivo de projeto é criar uma aplicação desktop para consultas em um banco de dados. A aplicação será totalmente desenvolvida em Java. Ela será responsável por enviar o comando do usuário a um modelo de linguagem local que interpretará o comando, traduzindo-o em código SQL. Após aquisição do código, o mesmo será executado no banco de dados para retornar ao usuário os dados de sua pesquisa.
+
+**Status do Projeto: Em andamento 📈**
+
+→ [Voltar ao topo](#topo)
+<br> 
+
+<span id="metodologia">
+
+## 📚Metodologia
+
+O produto foi realizado utilizando-se da metodologia ágil Scrum. Por ser um método que conta com a divisão de papéis (Scrum Master, Product Owner e Time de Desenvolvimento), o desenvolvimento das tarefas foi realizado em iterações menores, chamadas de **Sprints**, que se incrementam progressivamente. Para definição das entregas, deu-se prioridade à definição do **MVP**, verificando com o cliente os objetivos que trariam maior entrega de valor. Assim, foi-se definido o **Backlog do Produto**.
+Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrantes do time, utilizando como critério a disponibilidade de tempo e conhecimento dos membros.
+<br>
+</br>
+→ [Voltar ao topo](#topo)

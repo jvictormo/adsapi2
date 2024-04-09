@@ -40,3 +40,28 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
 <br>
 </br>
 → [Voltar ao topo](#topo)
+
+<span id="mvp">
+
+## 🏆**MVP**
+
+<p align="center">
+      
+<br>
+
+1. Wireframe: [Protótipo navegável](https://www.figma.com/file/EQds1W63Tm9lV74E8ufQbe/API-%2F-Programa-em-Java-Segundo-Semestre?type=design&node-id=0%3A1&mode=design&t=WCgB6kW0N30tEJZG-1) ✅
+
+<br> 
+
+2. Implementação banco de dados: [Aplicação inicial]() 📈
+
+<br>
+
+3. Interface gráfica: [Aplicação com interface gráfica]() 📈
+
+<br>
+
+4. Implementação SQLCODER: [Aplicação completa]()  📈
+
+<br>
+→ [Voltar ao topo](#topo)

@@ -49,19 +49,19 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
       
 <br>
 
-1. Wireframe: [Protótipo navegável](https://www.figma.com/file/EQds1W63Tm9lV74E8ufQbe/API-%2F-Programa-em-Java-Segundo-Semestre?type=design&node-id=0%3A1&mode=design&t=WCgB6kW0N30tEJZG-1) ✅
+1. Wireframe: [Protótipo navegável](https://www.figma.com/file/EQds1W63Tm9lV74E8ufQbe/API-%2F-Programa-em-Java-Segundo-Semestre?type=design&node-id=0%3A1&mode=design&t=WCgB6kW0N30tEJZG-1) 🚧
 
 <br> 
 
-2. Implementação banco de dados: [Aplicação inicial]() 📈
+2. Implementação banco de dados: [Aplicação inicial]() 🚧
 
 <br>
 
-3. Interface gráfica: [Aplicação com interface gráfica]() 📈
+3. Interface gráfica: [Aplicação com interface gráfica]() 🚧
 
 <br>
 
-4. Implementação SQLCODER: [Aplicação completa]()  📈
+4. Implementação SQLCODER: [Aplicação completa]()  🚧
 
 <br>
 
@@ -71,7 +71,7 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
 
 ## 📅Sprints 
 
-### Sprint - 1️⃣ 🏃 [(Clique aqui)]():  Em andamento 🚧
+### Sprint - 1️⃣ 🏃 [(Clique aqui)](https://github.com/jvictormo/adsapi2/blob/main/Documents/Sprints/Sprint%201/README.md):  Em andamento 🚧
 <br>
 
 ### Sprint - 2️⃣ 🏃 [(Clique aqui)]():  Em andamento 🚧
@@ -81,6 +81,26 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
 <br>
 
 ### Sprint - 4️⃣ 🏃 : [(Clique aqui)]() Em andamento 🚧
+<br>
+
+→ [Voltar ao topo](#topo)
+
+<span id="backlog-do-produto">
+
+## 🌱Backlog do Produto
+
+| Item  | Sprint | Prioridade  | ID | Estimativa de Esforço | Status | Data de Entrega |
+|:-------------------------------------------:|:-----------:|:-------------:|:----:|:-----:|:---:|:-----:|
+| Wireframe   |  1      | 100                | #01 | 10h | 🚧  |  14/04/2024            |
+| Backlog   | 1      | 95                | #02 | 02h | 🚧 |  14/04/2024            |    
+| Implementar NSQL   |  2      | 90                | #03 | 20h | 🚧  |  05/05/2024            |    
+| Implementar o banco de dados  | 2      | 85                | #04 | 40h | 🚧  |  05/05/2024            |    
+| Interface Gráfica   | 2      | 80                | #05 | 03h | 🚧  |  05/05/2024            |    
+| Implementar um segundo banco de dados   | 3      | 75                | #06 | 15h | 🚧  |  26/05/2024            |    
+| Implementar SQLCODER   |  4      | 70                | #07 | 10h | 🚧  |  16/06/2024            |    
+| Documentação   |  4      | 65                | #08 | 05h | 🚧  |  16/06/2024            |    
+
+<br>
 <br>
 
 → [Voltar ao topo](#topo)

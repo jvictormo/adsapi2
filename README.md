@@ -49,7 +49,7 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
       
 <br>
 
-1. Wireframe: [Protótipo navegável](https://www.figma.com/file/EQds1W63Tm9lV74E8ufQbe/API-%2F-Programa-em-Java-Segundo-Semestre?type=design&node-id=0%3A1&mode=design&t=WCgB6kW0N30tEJZG-1) 🚧
+1. Wireframe: [Protótipo navegável](https://www.figma.com/file/EQds1W63Tm9lV74E8ufQbe/API-%2F-Programa-em-Java-Segundo-Semestre?type=design&node-id=0%3A1&mode=design&t=WCgB6kW0N30tEJZG-1) ✅
 
 <br> 
 
@@ -82,6 +82,7 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
 
 ### Sprint - 4️⃣ 🏃 : [(Clique aqui)]() Em andamento 🚧
 <br>
+
 
 → [Voltar ao topo](#topo)
 

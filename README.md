@@ -105,3 +105,17 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
 <br>
 
 → [Voltar ao topo](#topo)
+
+<span id="autores">
+
+## 👨‍💻**Autores** 
+
+|      Nome      |    Função       |                            Github                             |                           Linkedin                           |
+| :--------------: | :-----------: | :----------------------------------------------------------: | :----------------------------------------------------------: |
+|  João Victor Menezes Oliveira     | Scrum Master  | <a href="https://github.com/jvictoroliv"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a> | <a href="https://www.linkedin.com/in/joão-victor-menezes-88a6b9264/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a> |
+|  Pedro Henrique Machado Martins    | Product Owner | <a href="https://github.com/PedrooMachado23"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a> | <a href="https://www.linkedin.com/in/pedro-henrique-machado-martins-42786227a/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a> |
+| Lucas Kendi Azuma | Desenvolvedor | <a href="https://github.com/LucsKendi"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a> | <a href="https://www.linkedin.com/in/lucas-kendi-azuma-70388b10a/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a> |
+| Maria Clara Fernandes Barros  | Desenvolvedora | <a href="https://github.com/claramfb"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a> | <a href="https://www.linkedin.com/in/maria-clara-fernandes-barros-35a4b1259"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a> |
+| Gabriel Santino Dias Cosentino  | Desenvolvedor | <a href="https://github.com/gabrielsdcosentino"><img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white"></a> | <a href="https://www.linkedin.com/in/gabriel-cosentino-83907728a/"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a> |
+
+→ [Voltar ao topo](#topo)

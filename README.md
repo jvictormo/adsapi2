@@ -53,15 +53,15 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
 
 <br> 
 
-2. Implementação banco de dados: [Aplicação inicial]() 🚧
+2. Conversão da linguagem natural: [Aplicação 1/3]() 🚧
 
 <br>
 
-3. Interface gráfica: [Aplicação com interface gráfica]() 🚧
+3. Segundo banco de dados para consulta: [Aplicação 2/3]() 🚧
 
 <br>
 
-4. Implementação SQLCODER: [Aplicação completa]()  🚧
+4. Segunda IA: [Aplicação completa]()  🚧
 
 <br>
 

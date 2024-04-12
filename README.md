@@ -92,7 +92,7 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
 
 | Item  | Sprint | Prioridade  | ID | Estimativa de Esforço | Status | Data de Entrega |
 |:-------------------------------------------:|:-----------:|:-------------:|:----:|:-----:|:---:|:-----:|
-| Wireframe   |  1      | 100                | #01 | 10h | 🚧  |  14/04/2024            |
+| Wireframe   |  1      | 100                | #01 | 10h | ✅  |  14/04/2024            |
 | Backlog   | 1      | 95                | #02 | 02h | 🚧 |  14/04/2024            |    
 | Implementar NSQL   |  2      | 90                | #03 | 20h | 🚧  |  05/05/2024            |    
 | Implementar o banco de dados  | 2      | 85                | #04 | 40h | 🚧  |  05/05/2024            |    

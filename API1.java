@@ -1,9 +1,5 @@
 package UI;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 import factory.ConnectionFactory;
 import javax.swing.*;
 import java.awt.*;
@@ -12,7 +8,7 @@ import java.awt.event.ActionListener;
 import java.sql.*;
 
 public class API1 {
-    private static Connection connection; 
+    private static Connection connection;
 
     public static void main(String[] args) {
         connection = new ConnectionFactory().getConnection();
@@ -41,9 +37,9 @@ public class API1 {
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String sqlQuery = inputArea.getText().trim();
-                if (!sqlQuery.isEmpty()) {
-                    executeQuery(sqlQuery, textArea);
+                String sqlCommand = inputArea.getText().trim();
+                if (!sqlCommand.isEmpty()) {
+                    executeStatement(sqlCommand, textArea);
                 }
             }
         });
@@ -92,25 +88,28 @@ public class API1 {
         frame.setLocation(x, y);
     }
 
-    // Método para executar uma consulta SQL e exibir o resultado na área de saída
-    private static void executeQuery(String sqlQuery, JTextArea textArea) {
-        try (Statement statement = connection.createStatement();
-             ResultSet resultSet = statement.executeQuery(sqlQuery)) {
+    private static void executeStatement(String sqlCommand, JTextArea textArea) {
+        try (Statement statement = connection.createStatement()) {
+            if (statement.execute(sqlCommand)) {
+                ResultSet resultSet = statement.getResultSet();
+                ResultSetMetaData metaData = resultSet.getMetaData();
+                int columnCount = metaData.getColumnCount();
 
-            ResultSetMetaData metaData = resultSet.getMetaData();
-            int columnCount = metaData.getColumnCount();
-
-            StringBuilder result = new StringBuilder();
-            while (resultSet.next()) {
-                for (int i = 1; i <= columnCount; i++) {
-                    result.append(metaData.getColumnName(i)).append(": ").append(resultSet.getString(i)).append(", ");
+                StringBuilder result = new StringBuilder();
+                while (resultSet.next()) {
+                    for (int i = 1; i <= columnCount; i++) {
+                        result.append(metaData.getColumnName(i)).append(": ").append(resultSet.getString(i)).append(", ");
+                    }
+                    result.append("\n");
                 }
-                result.append("\n");
-            }
 
-            textArea.setText(result.toString());
+                textArea.setText(result.toString());
+            } else {
+
+                textArea.setText("Operação realizada com sucesso.");
+            }
         } catch (SQLException e) {
-            textArea.setText("Erro ao executar a consulta: " + e.getMessage());
+            textArea.setText("Erro ao executar o comando: " + e.getMessage());
         }
     }
 }

@@ -18,11 +18,11 @@ Nessa sprint, foram criados e validados os requisitos do produto, bem como a div
 |:-------:|:--------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------:|
 | Protótipo  | 100      | #01 | Prévia da estrutura e disposição de conteúdo do produto final
 | Backlog do produto    | 95      | #02 | Calendário de trabalho, dividido por tarefas em determinado espaço de tempo
-| Estudar NSQL  | 90      | #03 | Pesquisa para utilização e implementação da IA
-| Estudar Lanchain4j  | 85      | #03 | Pesquisa para conectar a aplicação com a IA
-| Estudar LMStudio  | 80      | #03 | Pesquisa para permitir que a IA funcione localmente
-| Criar BD  | 75      | #04 | Criar o primeiro bando de dados para consulta
-| Documentação  | 70      | #08 | Registro de todo o processo de desenvolvimento do produto
+| Estudar NSQL  | 90      | #02 | Pesquisa para utilização e implementação da IA
+| Estudar Lanchain4j  | 85      | #02 | Pesquisa para conectar a aplicação com a IA
+| Estudar LMStudio  | 80      | #02 | Pesquisa para permitir que a IA funcione localmente
+| Estudar MYSQL  | 75      | #03 | Criar o primeiro bando de dados para consulta
+| Documentação  | 70      | #07 | Registro de todo o processo de desenvolvimento do produto
 
 → [Voltar ao topo](#topo)
 

@@ -53,7 +53,7 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
 
 <br> 
 
-2. Conversão da linguagem natural: [Aplicação 1/3]() 🚧
+2. Conversão da linguagem natural: [Aplicação 1/3]() ✅
 
 <br>
 
@@ -74,7 +74,7 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
 ### Sprint - 1️⃣ 🏃 [(Clique aqui)](https://github.com/jvictormo/adsapi2/blob/main/Documents/Sprints/Sprint%201/README.md):  Concluída✅
 <br>
 
-### Sprint - 2️⃣ 🏃 [(Clique aqui)]():  Em andamento 🚧
+### Sprint - 2️⃣ 🏃 [(Clique aqui)]():  Concluída ✅
 <br>
 
 ### Sprint - 3️⃣ 🏃 [(Clique aqui)]():  Em andamento 🚧

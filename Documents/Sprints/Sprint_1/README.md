@@ -22,7 +22,7 @@ Nessa sprint, foram criados e validados os requisitos do produto, bem como a div
 | Estudar Lanchain4j  | 85      | #02 | Pesquisa para conectar a aplicação com a IA
 | Estudar LMStudio  | 80      | #02 | Pesquisa para permitir que a IA funcione localmente
 | Estudar MYSQL  | 75      | #03 | Criar o primeiro bando de dados para consulta
-| Documentação  | 70      | #07 | Registro de todo o processo de desenvolvimento do produto
+| Documentação  | 70      | #07 | Registro de todos os processos de desenvolvimento do produto
 
 → [Voltar ao topo](#topo)
 

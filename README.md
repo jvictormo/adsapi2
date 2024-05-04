@@ -71,7 +71,7 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
 
 ## 📅Sprints 
 
-### Sprint - 1️⃣ 🏃 [(Clique aqui)](https://github.com/jvictormo/adsapi2/blob/main/Documents/Sprints/Sprint%201/README.md):  Em andamento 🚧
+### Sprint - 1️⃣ 🏃 [(Clique aqui)](https://github.com/jvictormo/adsapi2/blob/main/Documents/Sprints/Sprint%201/README.md):  Concluída✅
 <br>
 
 ### Sprint - 2️⃣ 🏃 [(Clique aqui)]():  Em andamento 🚧
@@ -92,13 +92,12 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
 
 | Item  | Sprint | Prioridade  | ID | Estimativa de Esforço | Status | Data de Entrega |
 |:-------------------------------------------:|:-----------:|:-------------:|:----:|:-----:|:---:|:-----:|
-| Wireframe   |  1      | 100                | #01 | 10h | ✅  |  14/04/2024            |
-| Backlog   | 1      | 95                | #02 | 02h | 🚧 |  14/04/2024            |    
-| Implementar NSQL   |  2      | 90                | #03 | 20h | 🚧  |  05/05/2024            |    
-| Implementar o banco de dados  | 2      | 85                | #04 | 40h | 🚧  |  05/05/2024            |    
-| Interface Gráfica   | 2      | 80                | #05 | 03h | 🚧  |  05/05/2024            |    
-| Implementar um segundo banco de dados   | 3      | 75                | #06 | 15h | 🚧  |  26/05/2024            |    
-| Implementar SQLCODER   |  4      | 70                | #07 | 10h | 🚧  |  16/06/2024            |    
+| Interface Gráfica   |  1      | 100                | #01 | 10h | ✅  |  14/04/2024            |
+| Transformação linguagem natural para SQL   | 1      | 95                | #02 | 02h | ✅ |  14/04/2024            |    
+| Banco de dados para consulta   |  2      | 90                | #03 | 20h | ✅  |  05/05/2024            |    
+| Retornar os dados na resposta final  | 2      | 85                | #04 | 40h | ✅  |  05/05/2024            |    
+| Possibilitar troca do banco de dados   | 3      | 80                | #05 | 03h | 🚧  |  05/05/2024            |    
+| Possibilitar troca das IA's   | 3      | 75                | #06 | 15h | 🚧  |  26/05/2024            |    
 | Documentação   |  4      | 65                | #08 | 05h | 🚧  |  16/06/2024            |    
 
 <br>

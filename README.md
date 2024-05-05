@@ -53,7 +53,7 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
 
 <br> 
 
-2. Conversão da linguagem natural: [Aplicação 1/3]() ✅
+2. Conversão da linguagem natural: [Aplicação 1/3](https://github.com/jvictormo/adsapi2/tree/main/API%20JPT) ✅
 
 <br>
 
@@ -71,10 +71,10 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
 
 ## 📅Sprints 
 
-### Sprint - 1️⃣ 🏃 [(Clique aqui)](https://github.com/jvictormo/adsapi2/blob/main/Documents/Sprints/Sprint%201/README.md):  Concluída✅
+### Sprint - 1️⃣ 🏃 [(Clique aqui)](https://github.com/jvictormo/adsapi2/tree/main/Documents/Sprints/Sprint_1):  Concluída✅
 <br>
 
-### Sprint - 2️⃣ 🏃 [(Clique aqui)]():  Concluída ✅
+### Sprint - 2️⃣ 🏃 [(Clique aqui)](https://github.com/jvictormo/adsapi2/tree/main/Documents/Sprints/Sprint_2):  Concluída ✅
 <br>
 
 ### Sprint - 3️⃣ 🏃 [(Clique aqui)]():  Em andamento 🚧
@@ -97,7 +97,7 @@ Com a base de prioridade bem demarcada, dividimos as tarefas entre os integrante
 | Banco de dados para consulta   |  2      | 90                | #03 | 20h | ✅  |  05/05/2024            |    
 | Retornar os dados na resposta final  | 2      | 85                | #04 | 40h | ✅  |  05/05/2024            |    
 | Possibilitar troca do banco de dados   | 3      | 80                | #05 | 03h | 🚧  |  05/05/2024            |    
-| Possibilitar troca das IA's   | 3      | 75                | #06 | 15h | 🚧  |  26/05/2024            |    
+| Possibilitar troca das IA's   | 4      | 75                | #06 | 15h | 🚧  |  26/05/2024            |    
 | Documentação   |  4      | 65                | #08 | 05h | 🚧  |  16/06/2024            |    
 
 <br>

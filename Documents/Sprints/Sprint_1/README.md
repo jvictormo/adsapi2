@@ -6,8 +6,12 @@
     <a href="#userstory">User Story's</a> &nbsp |&nbsp &nbsp
 </p>
 <br>
-Nessa sprint, foram criados e validados os requisitos do produto, bem como a divisão das atividades mais importantes e de maior valor ao cliente numa primeira entrega. Para isso, o Backlog do Produto, Wireframe e MVP foram o foco, além dos estudos realizados para compreensão de ferramentas essenciais no desenvolvimento do projeto.
+Nessa sprint, foram criados e validados os requisitos do produto, bem como a divisão das atividades mais importantes e de maior valor ao cliente numa primeira entrega. Para isso, o Backlog do Produto, Wireframe e MVP foram o foco, além dos estudos realizados para compreensão de ferramentas essenciais no desenvolvimento do projeto. O video a seguir mostra o protótipo da aplicação.
 <br>
+
+
+https://github.com/jvictormo/adsapi2/assets/97699411/e5d34979-e932-404d-acd6-c6d5d71df979
+
 
 <span id="backlog">
 

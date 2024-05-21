@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.plaf.basic.BasicButtonUI;
 import langchain.ChatController;
 
@@ -54,7 +56,7 @@ public class API1 {
         
         // Criar botões adicionais
         JButton[] additionalButtons = new JButton[3];
-        JPanel buttonPanel = new JPanel(new GridLayout(3, 1, 0, 5)); // Layout de grade para botões adicionais
+        JPanel buttonPanel = new JPanel(new GridLayout(15, 1, 0, 5)); // Layout de grade para botões adicionais
         buttonPanel.setOpaque(false);
         for (int i = 0; i < additionalButtons.length; i++) {
             additionalButtons[i] = new JButton("Botão " + (i + 1));
@@ -141,19 +143,28 @@ public class API1 {
         outputScrollPane.setBorder(BorderFactory.createEmptyBorder()); // Remover borda branca indesejada
 
         JPanel panel = new JPanel(new BorderLayout());
-        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 10, 20));
         panel.setBackground(Color.BLACK);
 
         JPanel textPanel = new JPanel(new BorderLayout());
         textPanel.setBackground(Color.BLACK);
         textPanel.setBorder(BorderFactory.createEmptyBorder(20, 10, 10, 10));
 
-        JPanel inputPanel = new JPanel(new BorderLayout()); // Usando BorderLayout para permitir o posicionamento do rótulo acima da caixa de entrada
+        JPanel inputPanel = new JPanel(new BorderLayout()); // Usando BorderLayout para organizar o rótulo acima da caixa de entrada
         inputPanel.setBackground(Color.BLACK);
 
-        inputPanel.add(inputLabel, BorderLayout.NORTH); // Adicionando o rótulo de entrada ao norte do painel de entrada
-        inputPanel.add(inputArea, BorderLayout.CENTER); // Adicionando a caixa de entrada ao centro do painel de entrada
-        inputPanel.add(sendButton, BorderLayout.EAST); // Adicionando o botão de enviar à direita do painel de entrada
+        // Criando um painel para a entrada de texto e o botão
+        JPanel inputSubPanel = new JPanel();
+        inputSubPanel.setLayout(new BoxLayout(inputSubPanel, BoxLayout.X_AXIS));
+        inputSubPanel.setBackground(Color.BLACK);
+
+        inputSubPanel.add(inputArea); // Adicionando a caixa de entrada
+        inputSubPanel.add(Box.createHorizontalStrut(10)); // Espaço entre a caixa de entrada e o botão
+        inputSubPanel.add(sendButton); // Adicionando o botão de enviar
+
+        inputPanel.add(inputLabel, BorderLayout.NORTH); // Adicionando o rótulo acima da caixa de entrada
+        inputPanel.add(inputSubPanel, BorderLayout.CENTER); // Adicionando a sub-divisão ao centro
+
         inputPanel.setBorder(BorderFactory.createEmptyBorder(20, 0, 0, 0));
 
         JPanel outputLabelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -163,6 +174,9 @@ public class API1 {
         textPanel.add(outputLabelPanel, BorderLayout.NORTH);
         textPanel.add(outputScrollPane, BorderLayout.CENTER); // Adicionar JScrollPane com borda removida
         textPanel.add(inputPanel, BorderLayout.SOUTH);
+
+        panel.add(textPanel, BorderLayout.CENTER);
+
 
         panel.add(textPanel, BorderLayout.CENTER);
 

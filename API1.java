@@ -50,13 +50,13 @@ public class API1 {
         leftButton.setOpaque(false);
         leftButton.setBorder(new RoundedBorder(50)); // Reduzindo o tamanho do arredondamento
         leftButton.setUI(new GradientButtonUI());
-        leftButton.setPreferredSize(new Dimension(170, 40)); // Ajustando a dimensão preferida do botão esquerdo
+        leftButton.setPreferredSize(new Dimension(170, 50)); // Ajustando a dimensão preferida do botão esquerdo
         leftButton.setMargin(new Insets(1, 10, 1, 10)); // Ajustando as margens do botão
-
+        
         
         // Criar botões adicionais
         JButton[] additionalButtons = new JButton[3];
-        JPanel buttonPanel = new JPanel(new GridLayout(15, 1, 0, 5)); // Layout de grade para botões adicionais
+        JPanel buttonPanel = new JPanel(new GridLayout(15, 1, 0, 25)); // Layout de grade para botões adicionais, com espaço de 20 pixels vertical
         buttonPanel.setOpaque(false);
         for (int i = 0; i < additionalButtons.length; i++) {
             additionalButtons[i] = new JButton("Botão " + (i + 1));
@@ -66,19 +66,34 @@ public class API1 {
             additionalButtons[i].setBorderPainted(false);
             additionalButtons[i].setFocusPainted(false);
             additionalButtons[i].setOpaque(false);
+            
+            buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 0, 5, 0)); // Adicionando margem entre os botões
+
             buttonPanel.add(additionalButtons[i]);
         }
-        
+
         // Adicionando ação de clique ao botão esquerdo
         leftButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 // Ação de clique do botão esquerdo
+                // Ação de clique do botão esquerdo
                 for (JButton button : additionalButtons) {
                     button.setVisible(true);
                 }
+                selectButton(leftButton, additionalButtons);
             }
         });
+
+        // Adicionar ActionListeners aos botões adicionais para selecionar e destacar a borda
+        for (JButton button : additionalButtons) {
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    selectButton(button, additionalButtons);
+                }
+            });
+        }
 
         leftPanel.add(leftButton); // Adicionar o botão ao painel esquerdo
         leftPanel.add(buttonPanel); // Adicionar o painel de botões adicionais abaixo do botão esquerdo
@@ -88,8 +103,8 @@ public class API1 {
         frame.getContentPane().add(leftWrapperPanel, BorderLayout.WEST); // Adicionando o novo painel à região oeste
 
         Font textFont = new Font("Segoe UI", Font.PLAIN, 14);
-        
-         JTextArea outputArea = new JTextArea(20, 20);
+
+        JTextArea outputArea = new JTextArea(20, 20);
         outputArea.setFont(textFont);
         outputArea.setEditable(false);
         outputArea.setLineWrap(true);
@@ -97,8 +112,8 @@ public class API1 {
         outputArea.setBackground(Color.BLACK);
         outputArea.setForeground(Color.WHITE);
         outputArea.setBorder(BorderFactory.createCompoundBorder(
-        new GradientBorder(new Color(0, 221, 255), new Color(0, 0, 153)),
-        BorderFactory.createEmptyBorder(10, 5, 5, 5))); // Adicionando borda interna à caixa de entrada e incluindo-a na borda composta
+                new GradientBorder(new Color(0, 221, 255), new Color(0, 0, 153)),
+                BorderFactory.createEmptyBorder(10, 5, 5, 5))); // Adicionando borda interna à caixa de entrada e incluindo-a na borda composta
 
         JTextArea inputArea = new JTextArea(2, 40);
         inputArea.setFont(textFont);
@@ -107,8 +122,8 @@ public class API1 {
         inputArea.setBackground(Color.BLACK);
         inputArea.setForeground(Color.WHITE);
         inputArea.setBorder(BorderFactory.createCompoundBorder(
-        new GradientBorder(new Color(0, 221, 255), new Color(0, 0, 153)),
-        BorderFactory.createEmptyBorder(10, 5, 5, 5))); // Adicionando borda interna à caixa de entrada e incluindo-a na borda composta
+                new GradientBorder(new Color(0, 221, 255), new Color(0, 0, 153)),
+                BorderFactory.createEmptyBorder(10, 5, 5, 5))); // Adicionando borda interna à caixa de entrada e incluindo-a na borda composta
 
         JLabel inputLabel = new JLabel("Envie sua mensagem para a IA:");
         JLabel outputLabel = new JLabel("Resposta da IA:");
@@ -116,6 +131,12 @@ public class API1 {
         outputLabel.setForeground(Color.WHITE);
         inputLabel.setFont(inputLabel.getFont().deriveFont(16f));
         outputLabel.setFont(outputLabel.getFont().deriveFont(16f));
+       
+
+    
+// Adicione a margem ao redor do rótulo "Envie sua mensagem para a IA:"
+inputLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5)); // Adicionando margem de 5 pixels em todos os lados
+
 
         JButton sendButton = new JButton("Enviar");
         sendButton.setPreferredSize(new Dimension(150, 50));
@@ -125,7 +146,8 @@ public class API1 {
         sendButton.setContentAreaFilled(false);
         sendButton.setBorderPainted(false);
         sendButton.setFocusPainted(false);
-
+        
+        buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 0, 5, 0)); // Adicionando margem entre os botões
 
         sendButton.addActionListener(new ActionListener() {
             @Override
@@ -137,13 +159,14 @@ public class API1 {
                 }
             }
         });
+
         sendButton.setUI(new GradientButtonUI()); // Definindo o degradê para o botão de enviar
 
         JScrollPane outputScrollPane = new JScrollPane(outputArea);
         outputScrollPane.setBorder(BorderFactory.createEmptyBorder()); // Remover borda branca indesejada
 
         JPanel panel = new JPanel(new BorderLayout());
-        panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 10, 20));
+        panel.setBorder(BorderFactory.createEmptyBorder(0, 20, 10, 20));
         panel.setBackground(Color.BLACK);
 
         JPanel textPanel = new JPanel(new BorderLayout());
@@ -174,9 +197,6 @@ public class API1 {
         textPanel.add(outputLabelPanel, BorderLayout.NORTH);
         textPanel.add(outputScrollPane, BorderLayout.CENTER); // Adicionar JScrollPane com borda removida
         textPanel.add(inputPanel, BorderLayout.SOUTH);
-
-        panel.add(textPanel, BorderLayout.CENTER);
-
 
         panel.add(textPanel, BorderLayout.CENTER);
 
@@ -213,6 +233,15 @@ public class API1 {
             }
         } catch (SQLException e) {
             outputArea.setText("Erro ao executar o comando: " + e.getMessage());
+        }
+    }
+
+    private static void selectButton(JButton selectedButton, JButton[] otherButtons) {
+        selectedButton.setBorder(new GradientBorder(new Color(0, 221, 255), new Color(0, 0, 153)));
+        for (JButton button : otherButtons) {
+            if (button != selectedButton) {
+                button.setBorder(null);
+            }
         }
     }
 
@@ -279,7 +308,7 @@ public class API1 {
         public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
             Graphics2D g2 = (Graphics2D) g.create();
             g2.setPaint(new GradientPaint(0, height, color1, 0, 0, color2));
-            g2.setStroke(new BasicStroke(6)); // Aumentando a largura da borda
+            g2.setStroke(new BasicStroke(7)); // Aumentando a largura da borda
             int borderRadius = 40; // Aumentando o raio do arredondamento
             g2.drawRoundRect(x, y, width - 1, height - 1, borderRadius, borderRadius);
             g2.dispose();
@@ -287,7 +316,7 @@ public class API1 {
 
         @Override
         public Insets getBorderInsets(Component c) {
-            return new Insets(3, 3, 3, 3);
+            return new Insets(1, 1, 1, 1);
         }
 
         @Override

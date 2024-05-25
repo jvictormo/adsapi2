@@ -77,7 +77,7 @@ O desenvolvimento das tarefas foi realizado em iterações menores, chamadas de 
 ### Sprint - 2️⃣ 🏃 [(Clique aqui)](https://github.com/jvictormo/adsapi2/tree/main/Documents/Sprints/Sprint_2):  Concluída ✅
 <br>
 
-### Sprint - 3️⃣ 🏃 [(Clique aqui)]():  Em andamento 🚧
+### Sprint - 3️⃣ 🏃 [(Clique aqui)](https://github.com/jvictormo/adsapi2/tree/main/Documents/Sprints/Sprint_3):  Concluída ✅
 <br>
 
 ### Sprint - 4️⃣ 🏃 : [(Clique aqui)]() Em andamento 🚧

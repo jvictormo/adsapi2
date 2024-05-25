@@ -43,7 +43,14 @@ public class API1 {
                 String userInput = inputArea.getText().trim();
                 if (!userInput.isEmpty()) {
                     // Gerar resposta da IA com base na entrada do usuário
-                    String aiResponse = chatController.generateResponse(userInput);
+                    String aiResponse = chatController.generateResponse("Following is the database CREATE TABLE `alunos` (\r\n"
+                    		+ "  `id` int NOT NULL AUTO_INCREMENT,\r\n"
+                    		+ "  `nome` varchar(100) NOT NULL,\r\n"
+                    		+ "  `email` varchar(100) NOT NULL,\r\n"
+                    		+ "  `data_nascimento` date NOT NULL,\r\n"
+                    		+ "  PRIMARY KEY (`id`)\r\n"
+                    		+ ") ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;\r\n"
+                    		+ "" + "for the following question (translate from portuguese to english unless, tables name, sql commands) " + userInput);
                     // Enviar a resposta da IA para o método executeStatement
                     executeStatement(aiResponse, textArea);
                 }

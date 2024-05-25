@@ -11,6 +11,9 @@ Após o desenvolvimento de ambas as tarefas, houve a integração da interface v
 O vídeo a seguir mostra a aplicação:
 <br>
 
+https://github.com/jvictormo/adsapi2/assets/97699411/1e16b4ca-eaa1-40e0-b924-3c3d74a72fda
+
+
 <span id="backlog">
 
 ## 📨 Backlog da Sprint

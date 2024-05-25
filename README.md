@@ -57,7 +57,7 @@ O desenvolvimento das tarefas foi realizado em iterações menores, chamadas de 
 
 <br>
 
-3. Segundo banco de dados para consulta: [Aplicação 2/3]() 🚧
+3. Segundo banco de dados para consulta: [Aplicação 2/3](https://github.com/jvictormo/adsapi2/blob/main/BD/bd2api.sql) ✅
 
 <br>
 
@@ -96,7 +96,7 @@ O desenvolvimento das tarefas foi realizado em iterações menores, chamadas de 
 | Transformação linguagem natural para SQL   | 1      | 95                | #02 | 02h | ✅ |  14/04/2024            |    
 | Banco de dados para consulta   |  2      | 90                | #03 | 20h | ✅  |  05/05/2024            |    
 | Retornar os dados na resposta final  | 2      | 85                | #04 | 40h | ✅  |  05/05/2024            |    
-| Possibilitar troca do banco de dados   | 3      | 80                | #05 | 03h | 🚧  |  05/05/2024            |    
+| Possibilitar troca do banco de dados   | 3      | 80                | #05 | 03h | ✅  |  05/05/2024            |    
 | Possibilitar troca das IA's   | 4      | 75                | #06 | 15h | 🚧  |  26/05/2024            |    
 | Documentação   |  4      | 65                | #08 | 05h | 🚧  |  16/06/2024            |    
 

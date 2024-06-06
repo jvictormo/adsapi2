@@ -65,9 +65,9 @@ public class API1 {
         leftPanel.setPreferredSize(new Dimension(200, frame.getHeight())); // Definir largura interna
         leftPanel.setBorder(new GradientBorder(new Color(0, 221, 255), new Color(0, 0, 153))); // Adicionando borda degradê
 
-        JButton leftButton = new JButton("Trocar BD");
+        JButton leftButton = new JButton("Databases");
         leftButton.setForeground(Color.WHITE);
-        leftButton.setFont(leftButton.getFont().deriveFont(14f));
+        leftButton.setFont(leftButton.getFont().deriveFont(13f));
         leftButton.setContentAreaFilled(false);
         leftButton.setBorderPainted(false);
         leftButton.setFocusPainted(false);
@@ -104,7 +104,8 @@ public class API1 {
             		
             		//faz a conexao com a db especifica
             		connection = new ConnectionFactory().conexao(database_selecionada);
-            		
+            		String fodase = String.format("DB: %s", database_selecionada);
+            		leftButton.setText(fodase);            		
             		//exibe confirmacao da troca
             		String mensagem = String.format("Database %s selecionada!", database_selecionada);
             		JOptionPane.showMessageDialog(null, mensagem, "Alerta", JOptionPane.WARNING_MESSAGE);

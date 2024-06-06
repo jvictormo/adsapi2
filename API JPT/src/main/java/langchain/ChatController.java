@@ -1,24 +1,21 @@
 package langchain;
 
 import dev.langchain4j.model.chat.ChatLanguageModel;
-import dev.langchain4j.model.openai.OpenAiChatModel;
-
-import java.time.Duration;
+import dev.langchain4j.model.ollama.OllamaChatModel;
 
 public class ChatController {
     private final ChatLanguageModel model;
 
     public ChatController() {
+		String MODEL_NAME = "duckdb-nsql";
         // Inicialize o modelo de idioma aqui
-        this.model = OpenAiChatModel.builder()
-                .apiKey("lm-studio")
-                .baseUrl("http://localhost:2000/v1")
-                .modelName("TheBloke/nsql-llama-2-7B-GGUF/nsql-llama-2-7b.Q8_0.gguf")
-                .temperature(0.7)
-                .timeout(Duration.ofSeconds(60))
-                .logRequests(true)
-                .logResponses(true)
-                .build();
+    	 String baseUrl = "http://localhost:11434/";
+
+         // Crie o modelo de chat com a configuração desejada
+    	 this.model = OllamaChatModel.builder()
+                 .baseUrl(baseUrl)
+                 .modelName(MODEL_NAME)
+                 .build();
     }
 
     public String generateResponse(String prompt) {

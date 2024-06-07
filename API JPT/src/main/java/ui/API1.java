@@ -21,38 +21,37 @@ import langchain.ChatController;
 public class API1 {
     private static final ChatController chatController = new ChatController();
     private static Connection connection;
-    
+
     //metodo que realiza uma consulta para saber todas as databases do sistema
     public static String[] getDatabases(){
-    	connection = new ConnectionFactory().getConnection();
-    	ArrayList<String> dbs = new ArrayList<>();
-    	try {
-    		Statement show_stmt = connection.createStatement();
-    		ResultSet result = show_stmt.executeQuery("SHOW DATABASES");
-    		while (result.next()) {
-    			dbs.add(result.getString(1));
-    		}
-    		connection.close();
-    	}
-    	catch (Exception e) {
-    		e.printStackTrace();
-    	}
-		return dbs.toArray(new String[0]);
+        connection = new ConnectionFactory().getConnection();
+        ArrayList<String> dbs = new ArrayList<>();
+        try {
+            Statement show_stmt = connection.createStatement();
+            ResultSet result = show_stmt.executeQuery("SHOW DATABASES");
+            while (result.next()) {
+                dbs.add(result.getString(1));
+            }
+            connection.close();
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dbs.toArray(new String[0]);
     }
 
     public static void main(String[] args) {
-    	String[] databases = getDatabases(); //gera um vetor com todas as databases do sistema
-    	
-    	for(String name : databases) {
-    		System.out.println(name);
-    	}
-    	
+        String[] databases = getDatabases();
+
+        for (String name : databases) {
+            System.out.println(name);
+        }
+
         JFrame frame = new JFrame("API1");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1000, 680); // Aumentando o tamanho da frame
+        frame.setSize(1000, 700); // Aumentando o tamanho da frame
         frame.getContentPane().setBackground(Color.BLACK);
         centerFrame(frame);
-        System.setProperty("swing.defaultlaf", "javax.swing.plaf.nimbus.NimbusLookAndFeel");
 
         JPanel leftWrapperPanel = new JPanel(new BorderLayout());
         leftWrapperPanel.setBackground(Color.BLACK);
@@ -61,24 +60,21 @@ public class API1 {
         // Adicionar o novo painel à esquerda da frame
         JPanel leftPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 10)); // Usando FlowLayout para centralizar e adicionar espaço ao redor do botão
         leftPanel.setBackground(Color.BLACK);
-        leftPanel.setBorder(new RoundedBorder(50));
         leftPanel.setPreferredSize(new Dimension(200, frame.getHeight())); // Definir largura interna
         leftPanel.setBorder(new GradientBorder(new Color(0, 221, 255), new Color(0, 0, 153))); // Adicionando borda degradê
 
         JButton leftButton = new JButton("Databases");
         leftButton.setForeground(Color.WHITE);
-        leftButton.setFont(leftButton.getFont().deriveFont(13f));
+        leftButton.setFont(leftButton.getFont().deriveFont(14f));
         leftButton.setContentAreaFilled(false);
         leftButton.setBorderPainted(false);
         leftButton.setFocusPainted(false);
         leftButton.setOpaque(false);
         leftButton.setBorder(new RoundedBorder(50)); // Reduzindo o tamanho do arredondamento
         leftButton.setUI(new GradientButtonUI());
-        leftButton.setPreferredSize(new Dimension(170, 50)); // Ajustando a dimensão preferida do botão esquerdo
+        leftButton.setPreferredSize(new Dimension(180, 50)); // Ajustando a dimensão preferida do botão esquerdo
         leftButton.setMargin(new Insets(1, 10, 1, 10)); // Ajustando as margens do botão
-        
-        
-        // Criar botões adicionais
+
         JButton[] additionalButtons = new JButton[databases.length];
         JPanel buttonPanel = new JPanel(new GridLayout(15, 1, 0, 25)); // Layout de grade para botões adicionais, com espaço de 20 pixels vertical
         buttonPanel.setOpaque(false);
@@ -90,64 +86,142 @@ public class API1 {
             additionalButtons[i].setBorderPainted(false);
             additionalButtons[i].setFocusPainted(false);
             additionalButtons[i].setOpaque(false);
-            
+
             additionalButtons[i].addActionListener(new ActionListener() {
-            	public void actionPerformed(ActionEvent e) {
-            		//fecha a conexão caso exista
-            		try {
-            			connection.close();
-            		} catch (Exception e_) {}
-  
-            		//pega o texto do botao clicado
-            		JButton botao_clicado = (JButton) e.getSource();
-            		String database_selecionada = botao_clicado.getText();
-            		
-            		//faz a conexao com a db especifica
-            		connection = new ConnectionFactory().conexao(database_selecionada);
-            		String fodase = String.format("DB: %s", database_selecionada);
-            		leftButton.setText(fodase);            		
-            		//exibe confirmacao da troca
-            		String mensagem = String.format("Database %s selecionada!", database_selecionada);
-            		JOptionPane.showMessageDialog(null, mensagem, "Alerta", JOptionPane.WARNING_MESSAGE);
-            	}
+                public void actionPerformed(ActionEvent e) {
+                    // Fecha a conexão caso exista
+                    try {
+                        connection.close();
+                    } catch (Exception e_) {
+                    }
+
+                    // Pega o texto do botão clicado
+                    JButton botao_clicado = (JButton) e.getSource();
+                    String database_selecionada = botao_clicado.getText();
+
+                    // Faz a conexão com a db específica
+                    connection = new ConnectionFactory().conexao(database_selecionada);
+                    String fodase = String.format("DB: %s", database_selecionada);
+                    leftButton.setText(fodase);
+                    // Exibe confirmação da troca
+                    String mensagem = String.format("Database %s selecionada!", database_selecionada);
+                    JOptionPane.showMessageDialog(null, mensagem, "Alerta", JOptionPane.WARNING_MESSAGE);
+                }
             });
-            
+
             buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 0, 5, 0)); // Adicionando margem entre os botões
 
             buttonPanel.add(additionalButtons[i]);
         }
 
-        // Adicionando ação de clique ao botão esquerdo
-        leftButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // Ação de clique do botão esquerdo
-                for (JButton button : additionalButtons) {
-                    button.setVisible(true);
-                }
-                selectButton(leftButton, additionalButtons);
-            }
-        });
-
-        // Adicionar ActionListeners aos botões adicionais para selecionar e destacar a borda
-        for (JButton button : additionalButtons) {
-            button.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    selectButton(button, additionalButtons);
-                }
-            });
-        }
-
         leftPanel.add(leftButton); // Adicionar o botão ao painel esquerdo
-        leftPanel.add(buttonPanel); // Adicionar o painel de botões adicionais abaixo do botão esquerdo
-
+        leftPanel.add(buttonPanel);
         leftWrapperPanel.add(leftPanel, BorderLayout.WEST); // Adicionar o painel esquerdo ao painel de envolvimento
 
-        frame.getContentPane().add(leftWrapperPanel, BorderLayout.WEST); // Adicionando o novo painel à região oeste
+        frame.getContentPane().add(leftWrapperPanel, BorderLayout.WEST);
+
+        JPanel painelDireito = new JPanel(new BorderLayout());
+        painelDireito.setBackground(Color.BLACK);
 
         Font textFont = new Font("Segoe UI", Font.PLAIN, 14);
 
+        // Rótulo e botão "subir"
+        JPanel topPanel = new JPanel(new BorderLayout());
+        topPanel.setBackground(Color.BLACK);
+        topPanel.setBorder(BorderFactory.createEmptyBorder(20, 10, 5, 20));
+
+        JButton buttonRight = new JButton("Troca de IA");
+        buttonRight.setPreferredSize(new Dimension(25, 50)); // Ajustando altura e largura do botão
+        buttonRight.setForeground(Color.WHITE);
+        buttonRight.setFont(buttonRight.getFont().deriveFont(14f));
+        buttonRight.setContentAreaFilled(false);
+        buttonRight.setBorderPainted(false);
+        buttonRight.setFocusPainted(false);
+        buttonRight.setOpaque(false);
+        buttonRight.setBorder(new RoundedBorder(50)); // Borda redonda
+        buttonRight.setUI(new GradientButtonUI());
+        topPanel.add(buttonRight, BorderLayout.CENTER);
+        
+        // ActionListener para o botão
+        buttonRight.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // Criar novo JFrame
+                JFrame newFrame = new JFrame("Nova Interface");
+                newFrame.setSize(400, 300); // Tamanho médio
+                newFrame.getContentPane().setBackground(Color.BLACK);
+                newFrame.getContentPane().setLayout(new GridBagLayout());
+                GridBagConstraints gbc = new GridBagConstraints();
+                gbc.insets = new Insets(10, 10, 10, 10);
+
+                // Adicionar label
+                JLabel label = new JLabel("Qual IA você gostaria de utilizar?");
+                label.setForeground(Color.WHITE);
+                label.setFont(new Font("Segoe UI", Font.BOLD, 16)); // Título em negrito
+                gbc.gridx = 0;
+                gbc.gridy = 0;
+                gbc.gridwidth = 2;
+                newFrame.getContentPane().add(label, gbc);
+
+                // Criar dois botões com efeito degradê
+                JButton button1 = new JButton("NSQL");
+                button1.setPreferredSize(new Dimension(120, 50)); // Botões mais altos
+                button1.setForeground(Color.WHITE);
+                button1.setFont(button1.getFont().deriveFont(14f));
+                button1.setContentAreaFilled(false);
+                button1.setBorderPainted(false);
+                button1.setFocusPainted(false);
+                button1.setUI(new GradientButtonUI());
+                button1.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        // Ação do botão 1
+                    }
+                });
+
+                JButton button2 = new JButton("SQLCoder");
+                button2.setPreferredSize(new Dimension(120, 50)); // Botões mais altos
+                button2.setForeground(Color.WHITE);
+                button2.setFont(button2.getFont().deriveFont(14f));
+                button2.setContentAreaFilled(false);
+                button2.setBorderPainted(false);
+                button2.setFocusPainted(false);
+                button2.setUI(new GradientButtonUI());
+                button2.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        // Ação do botão 2
+                    }
+                });
+
+                // Adicionar botões ao frame
+                gbc.gridx = 0;
+                gbc.gridy = 1;
+                gbc.gridwidth = 1;
+                gbc.anchor = GridBagConstraints.CENTER;
+                newFrame.getContentPane().add(button1, gbc);
+
+                gbc.gridx = 1;
+                newFrame.getContentPane().add(button2, gbc);
+
+                // Centralizar nova janela na tela
+                newFrame.setLocationRelativeTo(null);
+
+                // Tornar o novo JFrame visível
+                newFrame.setVisible(true);
+            }
+        });
+
+        painelDireito.add(topPanel, BorderLayout.NORTH);
+
+        JLabel outputLabel = new JLabel("Resposta da IA:");
+        topPanel.add(outputLabel, BorderLayout.SOUTH);
+        outputLabel.setForeground(Color.WHITE);
+        outputLabel.setFont(outputLabel.getFont().deriveFont(16f));
+        outputLabel.setBorder(BorderFactory.createEmptyBorder(20, 2, 0, 5)); // Adicionando margem ao rótulo
+
+
+        // Área de saída (resposta da IA)
         JTextArea outputArea = new JTextArea(20, 20);
         outputArea.setFont(textFont);
         outputArea.setEditable(false);
@@ -157,7 +231,27 @@ public class API1 {
         outputArea.setForeground(Color.WHITE);
         outputArea.setBorder(BorderFactory.createCompoundBorder(
                 new GradientBorder(new Color(0, 221, 255), new Color(0, 0, 153)),
-                BorderFactory.createEmptyBorder(10, 5, 5, 5))); // Adicionando borda interna à caixa de entrada e incluindo-a na borda composta
+                BorderFactory.createEmptyBorder(5, 10, 5, 5)));
+
+        JScrollPane outputScrollPane = new JScrollPane(outputArea);
+        outputScrollPane.setBorder(BorderFactory.createEmptyBorder()); // Removendo qualquer borda do JScrollPane
+
+        JPanel outputPanel = new JPanel(new BorderLayout());
+        outputPanel.setBackground(Color.BLACK);
+        outputPanel.setBorder(BorderFactory.createEmptyBorder(0, 10, 10, 20));
+        outputPanel.add(outputScrollPane, BorderLayout.CENTER);
+
+        painelDireito.add(outputPanel, BorderLayout.CENTER);
+
+        // Área de entrada (envio da mensagem)
+        JPanel inputPanel = new JPanel(new BorderLayout());
+        inputPanel.setBackground(Color.BLACK);
+        inputPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 20, 20)); // Aumentei a margem inferior
+
+        JLabel inputLabel = new JLabel("Envie sua mensagem para a IA:");
+        inputLabel.setForeground(Color.WHITE);
+        inputLabel.setFont(inputLabel.getFont().deriveFont(16f));
+        inputLabel.setBorder(BorderFactory.createEmptyBorder(5, 3, 5, 5)); // Adicionando margem ao rótulo
 
         JTextArea inputArea = new JTextArea(2, 40);
         inputArea.setFont(textFont);
@@ -167,21 +261,18 @@ public class API1 {
         inputArea.setForeground(Color.WHITE);
         inputArea.setBorder(BorderFactory.createCompoundBorder(
                 new GradientBorder(new Color(0, 221, 255), new Color(0, 0, 153)),
-                BorderFactory.createEmptyBorder(10, 5, 5, 5))); // Adicionando borda interna à caixa de entrada e incluindo-a na borda composta
+                BorderFactory.createEmptyBorder(5, 10, 5, 5))); 
 
-        JLabel inputLabel = new JLabel("Envie sua mensagem para a IA:");
-        JLabel outputLabel = new JLabel("Resposta da IA:");
-        inputLabel.setForeground(Color.WHITE);
-        outputLabel.setForeground(Color.WHITE);
-        inputLabel.setFont(inputLabel.getFont().deriveFont(16f));
-        outputLabel.setFont(outputLabel.getFont().deriveFont(16f));
-       
+        JScrollPane inputScrollPane = new JScrollPane(inputArea);
+        inputScrollPane.setBorder(BorderFactory.createEmptyBorder()); // Removendo qualquer borda do JScrollPane
 
-    
-// Adicione a margem ao redor do rótulo "Envie sua mensagem para a IA:"
-inputLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5)); // Adicionando margem de 5 pixels em todos os lados
+        JPanel inputSubPanel = new JPanel();
+        inputSubPanel.setLayout(new BoxLayout(inputSubPanel, BoxLayout.X_AXIS));
+        inputSubPanel.setBackground(Color.BLACK);
+        inputSubPanel.add(inputScrollPane);
+        inputSubPanel.add(Box.createHorizontalStrut(10));
 
-
+        // Botão "Enviar"
         JButton sendButton = new JButton("Enviar");
         sendButton.setPreferredSize(new Dimension(150, 50));
         sendButton.setBorder(new RoundedBorder(50));
@@ -190,14 +281,13 @@ inputLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5)); // Adicionand
         sendButton.setContentAreaFilled(false);
         sendButton.setBorderPainted(false);
         sendButton.setFocusPainted(false);
-        
-        buttonPanel.setBorder(BorderFactory.createEmptyBorder(20, 0, 5, 0)); // Adicionando margem entre os botões
+        sendButton.setUI(new GradientButtonUI());
 
         sendButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-            	String userInput = inputArea.getText().trim();
-                
+                String userInput = inputArea.getText().trim();
+
                 if (!userInput.isEmpty()) {
                     String aiResponse = chatController.generateResponse(userInput);
                     executeStatement(aiResponse, outputArea);
@@ -205,48 +295,20 @@ inputLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5)); // Adicionand
             }
         });
 
-        sendButton.setUI(new GradientButtonUI()); // Definindo o degradê para o botão de enviar
+        inputSubPanel.add(sendButton);  // Adicionando o botão de enviar ao lado da caixa de entrada
 
-        JScrollPane outputScrollPane = new JScrollPane(outputArea);
-        outputScrollPane.setBorder(BorderFactory.createEmptyBorder()); // Remover borda branca indesejada
+        inputPanel.add(inputLabel, BorderLayout.NORTH);
+        inputPanel.add(inputSubPanel, BorderLayout.CENTER);
 
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.setBorder(BorderFactory.createEmptyBorder(0, 20, 10, 20));
-        panel.setBackground(Color.BLACK);
+        painelDireito.add(inputPanel, BorderLayout.SOUTH);
 
-        JPanel textPanel = new JPanel(new BorderLayout());
-        textPanel.setBackground(Color.BLACK);
-        textPanel.setBorder(BorderFactory.createEmptyBorder(20, 10, 10, 10));
+        JSeparator separator = new JSeparator();
+        inputPanel.add(separator, BorderLayout.WEST);
 
-        JPanel inputPanel = new JPanel(new BorderLayout()); // Usando BorderLayout para organizar o rótulo acima da caixa de entrada
-        inputPanel.setBackground(Color.BLACK);
+        // Adicionando o painel direito à frame
+        frame.getContentPane().add(painelDireito, BorderLayout.CENTER);
 
-        // Criando um painel para a entrada de texto e o botão
-        JPanel inputSubPanel = new JPanel();
-        inputSubPanel.setLayout(new BoxLayout(inputSubPanel, BoxLayout.X_AXIS));
-        inputSubPanel.setBackground(Color.BLACK);
-
-        inputSubPanel.add(inputArea); // Adicionando a caixa de entrada
-        inputSubPanel.add(Box.createHorizontalStrut(10)); // Espaço entre a caixa de entrada e o botão
-        inputSubPanel.add(sendButton); // Adicionando o botão de enviar
-
-        inputPanel.add(inputLabel, BorderLayout.NORTH); // Adicionando o rótulo acima da caixa de entrada
-        inputPanel.add(inputSubPanel, BorderLayout.CENTER); // Adicionando a sub-divisão ao centro
-
-        inputPanel.setBorder(BorderFactory.createEmptyBorder(20, 0, 0, 0));
-
-        JPanel outputLabelPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        outputLabelPanel.setBackground(Color.BLACK);
-        outputLabelPanel.add(outputLabel);
-
-        textPanel.add(outputLabelPanel, BorderLayout.NORTH);
-        textPanel.add(outputScrollPane, BorderLayout.CENTER); // Adicionar JScrollPane com borda removida
-        textPanel.add(inputPanel, BorderLayout.SOUTH);
-
-        panel.add(textPanel, BorderLayout.CENTER);
-
-        frame.getContentPane().add(panel);
-
+        // Certifique-se de que a frame é visível
         frame.setVisible(true);
     }
 
@@ -274,7 +336,7 @@ inputLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5)); // Adicionand
 
                 outputArea.setText(result.toString());
             } else {
-               outputArea.setText("Operação realizada com sucesso.");
+                outputArea.setText("Operação realizada com sucesso.");
             }
         } catch (SQLException e) {
             outputArea.setText("Erro ao executar o comando: " + e.getMessage());
@@ -369,4 +431,4 @@ inputLabel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5)); // Adicionand
             return true;
         }
     }
-}
+} 

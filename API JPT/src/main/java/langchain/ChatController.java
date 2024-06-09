@@ -4,22 +4,28 @@ import dev.langchain4j.model.chat.ChatLanguageModel;
 import dev.langchain4j.model.ollama.OllamaChatModel;
 
 public class ChatController {
-    private final ChatLanguageModel model;
+    private ChatLanguageModel model;
+    private String modelName;
 
-    public ChatController() {
-		String MODEL_NAME = "duckdb-nsql";
-        // Inicialize o modelo de idioma aqui
-    	 String baseUrl = "http://localhost:11434/";
+    public ChatController(String initialModelName) {
+        this.modelName = initialModelName;
+        initializeModel();
+    }
 
-         // Crie o modelo de chat com a configuração desejada
-    	 this.model = OllamaChatModel.builder()
-                 .baseUrl(baseUrl)
-                 .modelName(MODEL_NAME)
-                 .build();
+    private void initializeModel() {
+        String baseUrl = "http://localhost:11434/";
+        this.model = OllamaChatModel.builder()
+                .baseUrl(baseUrl)
+                .modelName(modelName)
+                .build();
+    }
+
+    public void setModelName(String modelName) {
+        this.modelName = modelName;
+        initializeModel();
     }
 
     public String generateResponse(String prompt) {
-        // Gere a resposta da IA com base na entrada do usuário
         return model.generate(prompt);
     }
 }

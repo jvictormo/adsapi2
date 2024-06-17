@@ -31,8 +31,8 @@ Nessa sprint o foco se direcionou para a possibilidade de escolher uma IA secund
 
 | ID US | Sprint | US                                                                                                                                                                                                                               | ID Requisito          |
 |:-------:|:--------:|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------:|
-| US01  | 3      | "Eu, como cliente, quero que a aplicação funcione localmente em minha máquina."                                                                                                                                      |  #01                  |
-| US02  | 3      | "Eu, como cliente, quero que haja uma maneira que permita escolher uma segunda IA para a interpretação dos comandos"                                                                    |  #02                  |
-| US03  | 3      | "Eu, como cliente, quero que, através da interface, seja possível fazer a troca."                                                                           |  #03                  |
+| US01  | 4      | "Eu, como cliente, quero que a aplicação funcione localmente em minha máquina."                                                                                                                                      |  #01                  |
+| US02  | 4      | "Eu, como cliente, quero que haja uma maneira que permita escolher uma segunda IA para a interpretação dos comandos"                                                                    |  #02                  |
+| US03  | 4      | "Eu, como cliente, quero que, através da interface, seja possível fazer a troca."                                                                           |  #03                  |
 
 → [Voltar ao topo](#topo)

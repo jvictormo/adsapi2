@@ -7,7 +7,6 @@
 </p>
 <br>
 Nessa sprint o foco se direcionou para a possibilidade de escolher uma IA secundária. Depois de definido o método para que a troca ocorresse, foi feita uma adaptção do mesmo para que fosse feita sua integração a interface visual. 
-O vídeo a seguir mostra a aplicação:
 <br>
 
 
@@ -35,4 +34,5 @@ O vídeo a seguir mostra a aplicação:
 | US01  | 3      | "Eu, como cliente, quero que a aplicação funcione localmente em minha máquina."                                                                                                                                      |  #01                  |
 | US02  | 3      | "Eu, como cliente, quero que haja uma maneira que permita escolher uma segunda IA para a interpretação dos comandos"                                                                    |  #02                  |
 | US03  | 3      | "Eu, como cliente, quero que, através da interface, seja possível fazer a troca."                                                                           |  #03                  |
+
 → [Voltar ao topo](#topo)

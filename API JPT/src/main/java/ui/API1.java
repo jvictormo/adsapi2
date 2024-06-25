@@ -21,14 +21,14 @@ import javax.swing.plaf.basic.BasicButtonUI;
 import langchain.ChatController;
 
 public class API1 {
-	private static final ChatController chatController = new ChatController("duckdb-nsql"); // Inicializando
+	private static final ChatController chatController = new ChatController("TheBloke/nsql-llama-2-7B-GGUF/nsql-llama-2-7b.Q8_0.gguf"); // Inicializando
 																							// ChatController com
 																							// "duckdb-nsql"
 	private static Connection connection;
 
 	// metodo que realiza uma consulta para saber todas as databases do sistema
 	public static String[] getDatabases() {
-		connection = new ConnectionFactory().getConnection();
+		Connection connection = new ConnectionFactory().getConnection();
 		ArrayList<String> dbs = new ArrayList<>();
 		try {
 			Statement show_stmt = connection.createStatement();
@@ -65,24 +65,6 @@ public class API1 {
 			e.printStackTrace();
 		}
 		return schema.toString();
-	}
-
-	private static Map<String, String> getDatabasesWithSchemas() {
-		connection = new ConnectionFactory().getConnection();
-		Map<String, String> dbs = new HashMap<>();
-		try {
-			Statement show_stmt = connection.createStatement();
-			ResultSet result = show_stmt.executeQuery("SHOW DATABASES");
-			while (result.next()) {
-				String dbName = result.getString(1);
-				String dbSchema = getDatabaseSchema(connection, dbName); // Passando a conexão como parâmetro
-				dbs.put(dbName, dbSchema);
-			}
-			connection.close();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return dbs;
 	}
 
 	public static void main(String[] args) {
@@ -220,10 +202,6 @@ public class API1 {
 				button1.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						chatController.setModelName("duckdb-nsql");
-						JOptionPane.showMessageDialog(newFrame, "IA NSQL selecionada com sucesso!", "IA Selecionada",
-								JOptionPane.INFORMATION_MESSAGE);
-						newFrame.dispose(); // Fechar o novo JFrame após o alerta
 					}
 				});
 
@@ -238,10 +216,6 @@ public class API1 {
 				button2.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						chatController.setModelName("sqlcoder");
-						JOptionPane.showMessageDialog(newFrame, "IA SQLCoder selecionada com sucesso!",
-								"IA Selecionada", JOptionPane.INFORMATION_MESSAGE);
-						newFrame.dispose(); // Fechar o novo JFrame após o alerta
 					}
 				});
 
@@ -342,7 +316,7 @@ public class API1 {
 				if (!userInput.isEmpty()) {
 					String selectedDatabase = leftButton.getText();
 					String databaseSchema = getDatabaseSchema(connection, selectedDatabase);
-					String aiResponse = chatController.generateResponse("Use the schema from the dable as a reference"
+					String aiResponse = chatController.resposta("Use the schema from the dable as a reference"
 							+ databaseSchema
 							+ "Recive the following command and translate it from portuguese to english" + userInput);
 					executeStatement(aiResponse, outputArea);
@@ -392,15 +366,6 @@ public class API1 {
 			outputArea.setText(result.toString());
 		} catch (SQLException e) {
 			outputArea.setText("Erro ao executar o comando: " + e.getMessage());
-		}
-	}
-
-	private static void selectButton(JButton selectedButton, JButton[] otherButtons) {
-		selectedButton.setBorder(new GradientBorder(new Color(0, 221, 255), new Color(0, 0, 153)));
-		for (JButton button : otherButtons) {
-			if (button != selectedButton) {
-				button.setBorder(null);
-			}
 		}
 	}
 

@@ -1,31 +1,26 @@
 package langchain;
 
+import java.time.Duration;
+
 import dev.langchain4j.model.chat.ChatLanguageModel;
-import dev.langchain4j.model.ollama.OllamaChatModel;
+import dev.langchain4j.model.openai.OpenAiChatModel;
 
-public class ChatController {
-    private ChatLanguageModel model;
-    private String modelName;
-
-    public ChatController(String initialModelName) {
-        this.modelName = initialModelName;
-        initializeModel();
-    }
-
-    private void initializeModel() {
-        String baseUrl = "http://localhost:11434/";
-        this.model = OllamaChatModel.builder()
-                .baseUrl(baseUrl)
-                .modelName(modelName)
-                .build();
-    }
-
-    public void setModelName(String modelName) {
-        this.modelName = modelName;
-        initializeModel();
-    }
-
-    public String generateResponse(String prompt) {
-        return model.generate(prompt);
-    }
+public class  ChatController{
+private final ChatLanguageModel modelo;
+	
+	public ChatController(String model) {
+		this.modelo = OpenAiChatModel.builder()
+				.apiKey("lm-studio")
+				.baseUrl("http://localhost:2000/v1")
+				.modelName(model)
+				.temperature(0.7)
+				.timeout(Duration.ofSeconds(60))
+				.logRequests(true)
+				.logResponses(true)
+				.build();
+	}
+	
+	public String resposta(String comando) {
+		return modelo.generate(comando);
+	}
 }

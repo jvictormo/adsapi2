@@ -48,9 +48,9 @@ import javax.swing.plaf.basic.BasicButtonUI;
 
 import factory.ConnectionFactory;
 import langchain.ChatController;
-import ui.API1.GradientBorder;
-import ui.API1.GradientButtonUI;
-import ui.API1.RoundedBorder;
+import ui.AP1Frame.GradientBorder;
+import ui.AP1Frame.GradientButtonUI;
+import ui.AP1Frame.RoundedBorder;
 import useful.CommandLine;
 
 public class AP1Frame extends JFrame {
@@ -469,72 +469,53 @@ public class AP1Frame extends JFrame {
 		public boolean isBorderOpaque() {
 			return false;
 		}
-		
-		static class GradientButtonUI extends BasicButtonUI {
-			@Override
-			public void paint(Graphics g, JComponent c) {
-				Graphics2D g2 = (Graphics2D) g.create();
-				JButton button = (JButton) c;
-				g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-				int width = button.getWidth();
-				int height = button.getHeight();
-				Color color1 = new Color(0, 221, 255);
-				Color color2 = new Color(0, 0, 153);
-				GradientPaint gp = new GradientPaint(0, height, color1, 0, 0, color2);
-				g2.setPaint(gp);
-				g2.fillRoundRect(0, 0, width, height, 20, 20);
-				g2.dispose();
-				super.paint(g, c);
-			}
+	}
+	
+	static class GradientButtonUI extends BasicButtonUI {
+		@Override
+		public void paint(Graphics g, JComponent c) {
+			Graphics2D g2 = (Graphics2D) g.create();
+			JButton button = (JButton) c;
+			g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+			int width = button.getWidth();
+			int height = button.getHeight();
+			Color color1 = new Color(0, 221, 255);
+			Color color2 = new Color(0, 0, 153);
+			GradientPaint gp = new GradientPaint(0, height, color1, 0, 0, color2);
+			g2.setPaint(gp);
+			g2.fillRoundRect(0, 0, width, height, 20, 20);
+			g2.dispose();
+			super.paint(g, c);
+		}
+	}
+	
+	static class GradientBorder implements javax.swing.border.Border {
+		private final Color color1;
+		private final Color color2;
+
+		GradientBorder(Color color1, Color color2) {
+			this.color1 = color1;
+			this.color2 = color2;
 		}
 
-		static class GradientBorder implements javax.swing.border.Border {
-			private final Color color1;
-			private final Color color2;
+		@Override
+		public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
+			Graphics2D g2 = (Graphics2D) g.create();
+			g2.setPaint(new GradientPaint(0, height, color1, 0, 0, color2));
+			g2.setStroke(new BasicStroke(7)); // Aumentando a largura da borda
+			int borderRadius = 40; // Aumentando o raio do arredondamento
+			g2.drawRoundRect(x, y, width - 1, height - 1, borderRadius, borderRadius);
+			g2.dispose();
+		}
 
-			GradientBorder(Color color1, Color color2) {
-				this.color1 = color1;
-				this.color2 = color2;
-			}
+		@Override
+		public Insets getBorderInsets(Component c) {
+			return new Insets(1, 1, 1, 1);
+		}
 
-			@Override
-			public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-				Graphics2D g2 = (Graphics2D) g.create();
-				g2.setPaint(new GradientPaint(0, height, color1, 0, 0, color2));
-				g2.setStroke(new BasicStroke(7)); // Aumentando a largura da borda
-				int borderRadius = 40; // Aumentando o raio do arredondamento
-				g2.drawRoundRect(x, y, width - 1, height - 1, borderRadius, borderRadius);
-				g2.dispose();
-			}
-
-			@Override
-			public Insets getBorderInsets(Component c) {
-				return new Insets(1, 1, 1, 1);
-			}
-
-			@Override
-			public boolean isBorderOpaque() {
-				return true;
-			}
-			
-			static class GradientButtonUI extends BasicButtonUI {
-				@Override
-				public void paint(Graphics g, JComponent c) {
-					Graphics2D g2 = (Graphics2D) g.create();
-					JButton button = (JButton) c;
-					g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-					int width = button.getWidth();
-					int height = button.getHeight();
-					Color color1 = new Color(0, 221, 255);
-					Color color2 = new Color(0, 0, 153);
-					GradientPaint gp = new GradientPaint(0, height, color1, 0, 0, color2);
-					g2.setPaint(gp);
-					g2.fillRoundRect(0, 0, width, height, 20, 20);
-					g2.dispose();
-					super.paint(g, c);
-				}
-			}
-			
+		@Override
+		public boolean isBorderOpaque() {
+			return true;
 		}
 	}
 }
